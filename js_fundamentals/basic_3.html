@@ -1,0 +1,66 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            function zero_negativity(array){
+                x = 0
+                for(let i = 0; i < array.length; i ++){   
+                    if(Math.sign(array[i]) == -1){
+                        x = 0
+                    }
+                    else{
+                        x = x + 1
+                    }
+                }
+                if(x != array.length){
+                    return "False"
+                }
+                else{
+                    return "True"
+                }
+            }
+            function is_even(num){
+                if(num % 2 == 0){
+                    return "True"
+                }
+                else if(num % 2 != 0){
+                    return "False"
+                }
+            }
+            function how_namy_even(array){
+                let x = 0
+                for(let i =0; i < array.length; i ++){
+                    if (is_even(array[i]) == "True"){
+                        x = x + 1
+                    }
+                    else{
+                        x = x - 1
+                    }
+                }
+                if (x == array.length){
+                    return "True"
+                }
+                else{
+                    return "False"
+                }
+            }
+            function create_dummy_array(n){
+                let arr = []
+                for(let i = 0; i < n; i ++){
+                    arr.push(Math.floor(Math.random() * Math.floor(10)))
+                }
+                console.log(arr)
+            }
+            function random_choice(array){
+                x = Math.floor(Math.random() * Math.floor(array.length))
+                return array[x]
+            }
+            console.log(zero_negativity([0,2,3,-3]))
+            console.log(is_even(6))
+            console.log(how_namy_even([2,3,4,6,8]))
+            console.log(create_dummy_array(10))
+            console.log(random_choice([3,4,5,6,7,8]))
+        </script>
+    </body>
+</html>
