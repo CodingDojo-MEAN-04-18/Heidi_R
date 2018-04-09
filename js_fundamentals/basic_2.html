@@ -1,0 +1,29 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>        
+            function magic_multiply(x, y){
+                if(x.constructor == Array){
+                    return x
+                }
+                else if(y.constructor == Array){
+                    return y
+                }
+                if(x == 0 && y == 0){
+                    return "All inputs 0"
+                }
+                if(x.constructor == String || y.constructor == String ){
+                    return "error: cannot multiply with a string"
+                }
+                else{
+                    return x * y
+                }
+            
+            }
+            let test1 = magic_multiply(7, "three");
+            console.log(test1)</script>
+
+    </body>
+</html>
