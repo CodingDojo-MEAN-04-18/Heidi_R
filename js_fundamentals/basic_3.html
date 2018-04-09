@@ -5,20 +5,12 @@
         <script>
             function zero_negativity(array){
                 x = 0
-                for(let i = 0; i < array.length; i ++){   
-                    if(Math.sign(array[i]) == -1){
-                        x = 0
-                    }
-                    else{
-                        x = x + 1
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i] < 0){
+                        return false;
                     }
                 }
-                if(x != array.length){
-                    return "False"
-                }
-                else{
-                    return "True"
-                }
+                return true;
             }
             function is_even(num){
                 if(num % 2 == 0){
@@ -34,16 +26,8 @@
                     if (is_even(array[i]) == "True"){
                         x = x + 1
                     }
-                    else{
-                        x = x - 1
-                    }
                 }
-                if (x == array.length){
-                    return "True"
-                }
-                else{
-                    return "False"
-                }
+                return x
             }
             function create_dummy_array(n){
                 let arr = []
