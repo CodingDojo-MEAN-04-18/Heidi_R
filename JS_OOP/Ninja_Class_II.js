@@ -6,32 +6,28 @@ function Ninja(name){
     const speed = 3;
     const strength = 3;
     ///declaring variables ^^^
-    this.sayName = function(){
+    Ninja.prototype.sayName  = function(){///returns Ninja Name
         console.log("My Ninja Name Is ",self.name, "!")
         return this;
     }
-    this.showstats = function(){
+    Ninja.prototype.ShowStats = function(){///displays Ninja Stats
         console.log("name: ", self.name," strength: ", strength, " Speed: ", speed, " Health: ", self.health)
         return this;
     }
-    this.drinksake = function(){
+    Ninja.prototype.drinkSake = function(){///Increases health by 10
         this.health = this.health + 10
         console.log(this.name, "drank sake and gained 10 health, new health is:",this.health)
         return this;
     }
-    this.punch = function(ninja){
-        if(ninja instanceof Ninja == true){
-            ninja.health = ninja.health - 5
-            console.log(ninja.name, "was kicked by", this.name, "and lost 5 health")
-        }
-        else{
-            console.log("false")
-            ///console.log(newninja.__proto__ )
-        }
+    Ninja.prototype.punch = function(ninja){///decreases health by 5
+        ninja.health = ninja.health - 5
+        console.log(ninja.name, "punched by", this.name, "and lost 5 health")
+        return this;
     }
-    this.kick = function(ninja){
-        x = 15 * strength
+    Ninja.prototype.kick = function(ninja){///loses 15 health for every point of strength "kicker" has
+        const x = 15 * strength
         console.log(ninja.name, "was kicked by", this.name, "and lost", x, "Health")
+        return this;
     }
 }
 ///const Brian = new Ninja("Brian")
