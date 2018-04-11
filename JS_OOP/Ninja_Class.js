@@ -8,13 +8,16 @@ function Ninja(name){
     ///declaring variables ^^^
     this.sayName = function(){
         console.log("My Ninja Name Is ",self.name, "!")
+        return this;
     }
     this.showstats = function(){
         console.log("name: ", self.name," strength: ", strength, " Speed: ", speed, " Health: ", self.health)
+        return this;
     }
     this.drinksake = function(){
         this.health = this.health + 10
         console.log(this.name, "drank sake and gained 10 health, new health is:",this.health)
+        return this;
     }
 }
 const Brian = new Ninja("Brian")
