@@ -1,0 +1,32 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            ///takes a number and returns a string of "*" for that many(modified to check if it is a string and return letters for the length)
+            function StarString(num){
+                let x = ""
+                if (num.constructor == String){
+                    let str = num
+                    for(let b = 0; b < str.length; b ++){
+                        x = x + str[0].toLowerCase() 
+                    }
+                }
+                else{
+                    for(let i = 0; i < num; i ++){
+                        x = x + "*"
+                    }
+                }
+                return x
+            }
+            ///takes an array of numbers and prints out "*"(modified StarString instead of drawstars)
+            function DrawStars(array){
+                for(let i = 0; i < array.length; i ++){
+                    console.log(StarString(array[i]))
+                }
+            }
+            ///console.log(StarString("6"))
+            ///drawstars(["Tom",3,4,5, "Butt"])
+        </script>
+    </body>
+</html>
