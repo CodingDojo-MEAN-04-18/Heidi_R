@@ -6,22 +6,17 @@
         <a href = "" id = "link">Link tester!!</a>>
     </body>
     <script>
-var $Dojo = ( function() {
-    document.getElementById("link").addEventListener("click",click)
-    document.getElementById("link").addEventListener("mouseover",hover)
-    document.getElementById("link").addEventListener("mouseout",hover)
-    function click(e) {
-        console.log("clicked")
-        e.preventDefault()
-    }
-    function hover(x) {
-        if(x.type == "mouseout"){
-            console.log("out")
+        function $Dojo(id){
+            this.id = document.getElementById(id)
+            this.click = function(callback){
+                this.id.addEventListener("click", callback)
+            }
+            this.hover = function(over,out){
+                this.myId.addEventListener("mouseover", over);
+                this.myId.addEventListener("mouseout", out);
+            }
+            return this
         }
-        else{
-            console.log("over")
-        }
-    }
-}());
+        console.log($Dojo("link"))
     </script>
 </html>
