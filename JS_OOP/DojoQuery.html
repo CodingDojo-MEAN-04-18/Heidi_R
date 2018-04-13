@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>DojoQuery</title>
+    </head>
+    <body>
+        <a href = "" id = "link">Link tester!!</a>>
+    </body>
+    <script>
+var $Dojo = ( function() {
+    document.getElementById("link").addEventListener("click",click)
+    document.getElementById("link").addEventListener("mouseover",hover)
+    document.getElementById("link").addEventListener("mouseout",hover)
+    function click(e) {
+        console.log("clicked")
+        e.preventDefault()
+    }
+    function hover(x) {
+        if(x.type == "mouseout"){
+            console.log("out")
+        }
+        else{
+            console.log("over")
+        }
+    }
+}());
+    </script>
+</html>
