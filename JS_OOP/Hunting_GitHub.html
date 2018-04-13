@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Hunting Github</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+                $(document).ready(function(){
+                    //when the document is ready^^
+                    $("button").click(function(){
+                        //when the button is clicked send request to url and run function based on response
+                        $.get("https://api.github.com/users/Sintressed",DisplayName)
+
+                    })
+                function DisplayName(response){
+                    //second part of button function
+                    if(response.name){
+                        console.log(response.name)
+                    }
+                    else{
+                        console.log("name does not exist for username:", response.login)
+                    }
+                }
+                })
+            </script>
+    </head>
+    <body>
+        <button id = "button">button
+        </button>
+    </body>
+</html>
