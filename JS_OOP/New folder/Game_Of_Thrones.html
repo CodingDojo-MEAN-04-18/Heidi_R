@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Game Of Thrones</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <img src = "static/baratheon.png" width="215" height="165" id = "baratheon">
+        <img src = "static/lannister.jpg" width="215" height="165" id = "lannister">
+        <img src = "static/stark.jpg" width="215" height="165" id = "stark">
+        <img src = "static/targaryen.jpg" width="215" height="165" id = "targaryen">
+        <br>
+        <br>
+        House Details:
+        <div id = "container"></div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            //when images are clicked #find the id(of img and id in api) and #add info related to that id to "container" in html
+            $("img").click(function(){
+                var houses = {"stark": 362,"targaryen": 378, "lannister":229,"baratheon": 17}
+                for(house in houses){
+                    //#find
+                    if(house == $(this).attr("id")){
+                       $.get("https://anapioficeandfire.com/api/houses/"+ houses[house],append)
+                            
+                    }
+                }
+                //#add
+                function append(response){
+                    document.getElementById("container").innerHTML = "<br>" + "Name: " + response.name + "<br>" + "Words: " + response.words + "<br>" + "Titles: " + response.titles
+                }
+                
+                
+                
+            })
+        })
+    </script>
+</html>
