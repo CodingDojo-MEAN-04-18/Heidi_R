@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Whats That Pokemon</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class = "body">
+            <div id = "pokemon_placeholder"></div>
+            <div id = "stats_placeholder"></div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                console.log("Loading API")
+                $.get('https://pokeapi.co/api/v2/pokemon/?limit=152',function(response){
+                    console.log("loaded")
+                    for(let i = 1; i < 152; i ++){
+                    //grabs images to add to html
+                    var image = document.createElement("img");
+                    image.src = "static/"+ i+".png";
+                    image.id = i
+                    image.name = response.results[i - 1].name
+                    append("pokemon_placeholder",image);
+                    if( i % 6 == 0){//organizes pokemon
+                        append("pokemon_placeholder",document.createElement("br"));
+                    }
+                }
+                $("img").click(function(){
+                    console.log($(this).attr("id"))
+                    
+                    $.get('https://pokeapi.co/api/v2/pokemon/' + $(this).attr("id"), function(boo){
+                        append("stats_placeholder",boo, "yes")
+                    })
+
+                })
+                function append(div_id,response, stats){//adds pokemon images to html
+                    $("#stats_placeholder").empty()
+                    if(stats){
+                        x = $(this).clone(true)
+                        console.log(x)
+                        document.getElementById(div_id).innerHTML = (x[0] + "Types: " + stats.type + "<br>" + response + "Height: " + stats.height + "<br>" +"Weight " + stats.weight)
+                        //console.log(response)
+                    }
+                    document.getElementById(div_id).append(response)
+                }
+            })
+            });
+
+        </script>
+        <style>
+            .body{
+                width: 950px;
+                margin: auto;
+                background-color: yellow
+            }
+            #pokemon_placeholder{
+                width: 580px;
+                float: left;
+            }
+            #stats_placeholder{
+                width: 350px;
+                height: 400px;
+                float: right;
+                border: 2px solid red;
+                vertical-align: top;
+            }
+        </style>
+    </body>
+</html>
