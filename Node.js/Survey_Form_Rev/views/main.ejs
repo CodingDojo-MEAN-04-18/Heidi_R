@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Hello</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type ="text/javascript">
+            $(document).ready(function(){
+                var socket  = io.connect();
+                $( "#form" ).submit(function(e){
+                    e.preventDefault()
+                        socket.emit("posting_form", {
+                            name: $('#name').val(),
+                            location: $('#location').val(),
+                            language: $('#language').val(),
+                            comment: $('#comment').val()
+                        });
+                    });
+                    socket.on('updated_message', function (data){
+                        $('#message').html("You emitted the following information to the server: " + JSON.stringify(data.response));
+                    });
+                    socket.on('random_number', function (data){
+                       $('#number').html("Your lucky number emitted by the server is : " + JSON.stringify(data.response));
+                    });
+            })
+        </script>
+    </head>
+    <body>
+        <div id = "message">message</div>
+        <div id = "number">number</div>
+        <form id = "form">
+            <div id="name">
+                <label for="name">Your Name: </label>
+                <input type="text" name="name" id="">
+            </div>
+            <div id="location">
+                <label for="location">Dojo Location: </label>
+                <select name="location">
+                    <option value="Mountain View">Mountain View</option>
+                    <option value="Seattle, WA">Seattle, WA</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            </div>
+            <div id="language">
+                <label for="language">Favorite Language: </label>
+                <select name="language">
+                    <option value="NodeJs">NodeJs</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Express">Express</option>
+                    <option value="Javascript">Javascript</option>
+                </select>
+            </div>
+            <div id="comment">
+                <label for="comment">Comment (optional):</label>
+                <textarea name="comment"></textarea>
+            </div>
+            <input type="submit" value="Submit" id = "submit">
+        </form>
+    </body>
+</html>
