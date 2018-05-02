@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <h2>Here Are The Awesome Quotes!</h2>
+        <% quotes.forEach(function(quote){ %>
+                "<%- quote.quote; %>"<br>
+                -<%- quote.name; %> at <%- quote.created_at; %><br>
+         <% }); %>
+    </body>
+</html>
