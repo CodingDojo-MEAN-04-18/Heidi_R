@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Hel;po</title>
+    </head>
+    <body>
+            Name:<%- wolfer.name; %><br>
+            Age:<%- wolfer.age; %><br>
+            <a href = "/wolves/edit/<%= wolfer._id%>">Edit</a> | <a href = "" id = "delete">Delete</a>
+            <form action = "/wolves/<%= wolfer._id%>" method = "post" id = "deleting">
+            </form>
+            <script>
+                document.getElementById("delete").addEventListener("click",function(e){
+                    e.preventDefault()
+                    console.log("clicked")
+                    document.getElementById("deleting").submit()
+                    
+                    if (confirm('Are you sure you want to delete <%- wolfer.name %>?')) {
+                        console.log("yes")
+                    }
+
+                })
+            </script>
+    </body>
+</html>
