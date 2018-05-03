@@ -42,6 +42,7 @@ app.set('view engine', 'ejs');
 // Root Request
 app.get('/', function(req, res) {
     Message.find({})
+    .populate('_comments')
     .then(messages =>{
         console.log(messages)
         res.render('index', {messages});

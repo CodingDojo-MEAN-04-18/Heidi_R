@@ -12,11 +12,11 @@
             <input type = "text" name = "message"><br>
             <input type = "submit" value = "Post Message">
         </form>
-        <% for (const message of messages) { %>
+        <% for (let message of messages) { %>
             Name: <%= message.name %><br>
             Message: <%= message.message; %><br>
-            <% for (const comment of message._comments) { %>
-                <h5><%= "name: " + comment %></h5>
+            <% for (let comment of message._comments) { %>
+                <h5><%= "name: " + comment.name %></h5>
                 <h5><%="comment: " + comment.comment %></h5>
             <% } %>
             <form action = "/comment/<%= message._id %>" method = "post">
