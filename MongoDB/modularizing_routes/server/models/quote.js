@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+
+const mongoose = require("../config/mongoose.js");
 const Schema = mongoose;
 var quoteSchema = new mongoose.Schema({
     name: { type: String, required: true, minlength: 2},
