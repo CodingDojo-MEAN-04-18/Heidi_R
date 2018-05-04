@@ -7,8 +7,15 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 mongoose.connect('mongodb://localhost/message_board');
 const MessageSchema = new mongoose.Schema({
-	name: String,
-	message: String,
+    name: {
+        required: true,
+        type: String,
+        minlength: 2
+    },
+	message: {
+        required: true,
+        type: String,
+    },
     _comments: [
         {
             type: Schema.Types.ObjectId,
@@ -18,8 +25,15 @@ const MessageSchema = new mongoose.Schema({
     ],
 }, { timestamps:true });
 const CommentSchema = new mongoose.Schema({
-	name: String,
-	comment: String,
+	name: {
+        required: true,
+        type: String,
+        minlength: 2
+    },
+	comment: {
+        required: true,
+        type: String,
+    },
 	_message: {type: Schema.Types.ObjectId, ref: 'Message'}
 })
    mongoose.model('Message', MessageSchema);
@@ -62,6 +76,7 @@ app.post('/message', function(req, res) {
     })
     .catch(error =>{
         console.log("error adding message: ", error)
+        res.render("index", {error})
     })
   })
 app.post("/comment/:id", function(req, res) {
