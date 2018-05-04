@@ -1,6 +1,6 @@
+const quotes = require('../controllers/quotes.js')
 const mongoose = require('mongoose');
 const Quoter = mongoose.model('Quote');
-const quotes = require('../controllers/quotes.js')
 module.exports = function(app){
     app.get('/', function(req, res) {
         res.render("index")

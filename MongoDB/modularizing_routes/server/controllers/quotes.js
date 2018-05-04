@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Quoter = mongoose.model('Quote');
+const mongoose = require('mongoose');
+const Quoter = require("../models/quote.js");
 
 module.exports =  {
     find: function(req,res){
