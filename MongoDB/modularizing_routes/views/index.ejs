@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title></title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type = "text/javascript">
+            $(document).ready(function(){
+                $("#skip").click(function(){
+                    window.location.href='/quotes'
+                })
+            })
+            </script>
+    </head>
+    <body>
+        <% if(typeof(errors) != 'undefined' ) { %>
+            <% for (var x in errors) { %>
+                <h3><%= errors[x].message %></h3>
+            <% } %>
+        <% } %>
+        <form action = "/quotes" method = "post">
+            <h2>Welcome To Quoting Dojo</h2><br>
+            Your Name:<input type = "text" name = "name"><br>
+            Your Quote:<input type = "text" name = "quote"><br>
+            <input type = "submit" value = "Add My Quote!">
+        </form>
+        <button id = "skip">Skip To Quotes</button>
+    </body>
+</html>
