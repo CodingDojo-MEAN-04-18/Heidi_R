@@ -72,7 +72,7 @@ app.post('/message', function(req, res) {
     Message.create(req.body)
     .then(message =>{
         console.log("successfuly added")
-        res.redirect("/")
+        res.redirect("/",{error: "Added succesfully, please log in"})
     })
     .catch(error =>{
         console.log("error adding message: ", error)
