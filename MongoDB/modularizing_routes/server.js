@@ -23,7 +23,6 @@ app.set('views', path.join(__dirname, './views'));
 // Setting our View Engine set to EJS
 app.set('view engine', 'ejs');
 // Routes
-// Root Request
 require('./server/config/routes.js')(app)
 // Setting our Server to Listen on Port: 8000
 app.listen(8000, function() {
