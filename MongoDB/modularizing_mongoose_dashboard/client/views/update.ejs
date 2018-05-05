@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+            <h1>Edit <%= wolfer.name %>!</h1>
+            <form action="/delete/<%= wolfer.id %>" method='post'>
+              Name: <input type="text" name="name" value="<%= wolfer.name %>">
+              Age: <input type="text" name="age" value="<%= wolfer.age %>">
+              <input type="submit" value="Edit <%= wolfer.name %>!">
+            </form>
+            <a href="/">Home</a>
+    </body>
+</html>

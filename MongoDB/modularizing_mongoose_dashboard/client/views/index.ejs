@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <% wolves.forEach(function(wolf){ %>
+            ________________________________<br>
+            Name: <a href = "/wolves/<%= wolf._id%>"><%- wolf.name; %></a><br>
+            Age : <%- wolf.age; %><br>
+        <% }); %>
+        <button id = "add">Add New Wolf</button>
+        <script>
+            document.getElementById("add").addEventListener("click", function(){
+                window.location.href='/wolves/new'
+            })
+        </script>
+    </body>
+</html>
