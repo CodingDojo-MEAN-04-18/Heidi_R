@@ -86,6 +86,5 @@
                         <%= wolf.age %><br></p>
                     <form id = 'form<%= wolf.id %>'>Name:<input type = 'text' name = 'name' value = '<%= wolf.name %>'>Age:<input type = 'text' name = 'age' value = '<%= wolf.age %>'><input type = "hidden" id = "form_id" value = "<%= wolf._id %>"><button id = 'edit<%= wolf._id %>'>edit</button><button id = 'delete<%= wolf._id %>'>delete</button><button id = 'cancel<%= wolf._id %>'>cancel</button></form>
             <% }) %>
-
     </body>
 </html>
