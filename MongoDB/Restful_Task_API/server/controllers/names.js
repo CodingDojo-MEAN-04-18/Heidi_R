@@ -44,14 +44,7 @@ module.exports ={
     update: function(req,res){
         Name.update({title: req.params.title}, req.body,{new: true})
         .then(name =>{
-            //Name.find({title: req.body.title})
-            //.then(updated_name =>{
-                //console.log(updated_name)
             res.json(name, updated_names)
-            //})
-            //.catch(error =>{
-                //res.json({message: "Error", err: error})
-           // })  
         })
         .catch(error =>{
             console.log("another error")

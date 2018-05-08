@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Wolf Pack</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+                $(document).ready(function(){
+                    var x = 0
+                    $('form').hide()
+                    $('#create').show()
+                    $('#button_create').click(function(e){
+                        e.preventDefault()
+                        var form = this.form
+                        console.log(this.form.name.value)
+                        $.ajax({
+                            url: "http://localhost:8000/wolves/",
+                            type: "POST",
+                            data: JSON.stringify( {name: form.name.value, age: form.age.value} ),
+                            contentType: "application/json"
+                        }).done(function( msg ) {
+                            console.log(msg);
+                        });
+                        })
+                    $('p').click(function(e){
+                        e.preventDefault()
+                        if(x ===0){
+                            $(this).hide()
+                            $('#form' + this.id).show()
+                            y = this
+                            x = 1
+                            $('#edit' + y.id).click(function(e){
+                                e.preventDefault();
+                                x = 0
+                                var form = this.form
+                                console.log(this.form.name.value)
+                                $.ajax({
+                                    url: "http://localhost:8000/wolves/" + form.form_id.value,
+                                    type: "PUT",
+                                    data: JSON.stringify( {name: form.name.value, age: form.age.value} ),
+                                    contentType: "application/json"
+                                }).done(function( msg ) {
+                                    $(form).hide()
+                                    $(y).html(form.name.value + ":" + form.age.value);
+                                });
+                            })
+                            $('#delete' + y.id).click(function(e){
+                                e.preventDefault();
+                                x = 0
+                                let form = this.form
+                                var settings = {
+                                    url: "http://localhost:8000/wolves/" + form.form_id.value,
+                                    method: "DELETE",
+                                  }
+                                  $.ajax(settings).done(function (response) {
+                                    $('#form' + y.id).hide();
+                                    $(y).show() 
+                                    $(y).html(response)
+                                  });
+                            })
+                            $("#cancel" + y.id).click(function(e){
+                                e.preventDefault()
+                                x = 0
+                                $('#form' + y.id).hide()
+                                $(y).show()
+                            })
+                        }
+                        else{
+                            alert("can only edit/delete one wolf at a time")
+                        }
+
+                    })
+                    
+
+                })
+            </script>
+    </head>
+    <body>
+        <div class = "placeholder"><h3>click a wolf to edit/delete</h3> </div> 
+        Or create A new Wolf
+        <form id = "create">
+            Name:<input type = "text" name = "name"><br>
+            Age:<input type = "text" name = "age"><br>
+            <button id = "button_create">Create New Wolf</button><br>
+        </form>   
+            <% wolves.forEach(function(wolf) { %>
+                    <p id = '<%= wolf.id %>'><%= wolf.name %>:
+                        <%= wolf.age %><br></p>
+                    <form id = 'form<%= wolf.id %>'>Name:<input type = 'text' name = 'name' value = '<%= wolf.name %>'>Age:<input type = 'text' name = 'age' value = '<%= wolf.age %>'><input type = "hidden" id = "form_id" value = "<%= wolf._id %>"><button id = 'edit<%= wolf._id %>'>edit</button><button id = 'delete<%= wolf._id %>'>delete</button><button id = 'cancel<%= wolf._id %>'>cancel</button></form>
+            <% }) %>
+
+    </body>
+</html>
