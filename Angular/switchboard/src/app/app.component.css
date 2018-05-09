@@ -1,0 +1,22 @@
+div{
+    display: inline-block;
+    padding: 20px;
+    background-color: rgb(58, 21, 21);
+    border: 2px solid black;
+    margin-right: 5px;
+}
+button{
+    width: 60px;
+    height: 60px;
+    font-size: 33px;
+    border: 2px solid black;
+    box-shadow: 3px 3px 3px rgb(2, 2, 2);
+}
+#on{
+    background-color: green;
+    color: white;
+}
+#off{
+    background-color: red;
+    color: black;
+}
