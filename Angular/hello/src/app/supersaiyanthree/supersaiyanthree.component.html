@@ -1,0 +1,7 @@
+<fieldset>
+    <legend>SuperSaiyanThreeComponent</legend>
+    Power Level: {{myNote * 250| json}}
+    <h4 *ngIf="myNote * 250 > 9000 && myNote * 250 <= 20000">Over 9000!</h4>
+    <h4 *ngIf="myNote * 250 > 20000 && myNote * 250 < 50000">Superlative!</h4>
+    <h4 *ngIf="myNote * 250 >= 50000">The One!</h4>
+  </fieldset>

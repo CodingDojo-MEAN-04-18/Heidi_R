@@ -1,0 +1,22 @@
+
+<fieldset>
+  <legend>PowerComponent</legend>
+    <input
+     type = "number" 
+     name = "num" 
+     min = "1" 
+     max = "100" 
+     required
+      minlength = '1'
+      maxlength = '100' 
+      [(ngModel)] = "notes" 
+      >
+      <br>
+    <app-human [myNote] = 'notes'></app-human>
+    <app-saiyan [myNote] = 'notes'></app-saiyan>
+    <app-supersaiyan [myNote] = 'notes'></app-supersaiyan>
+    <app-supersaiyantwo [myNote] = 'notes'></app-supersaiyantwo>
+    <app-supersaiyanthree [myNote] = 'notes'></app-supersaiyanthree>
+    <app-supersaiyanfour [myNote] = 'notes'></app-supersaiyanfour>
+</fieldset>
+
