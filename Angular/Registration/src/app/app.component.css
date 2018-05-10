@@ -1,0 +1,16 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+#check{
+    color: green;
+}
+span{
+    color: red;
+}
+
+.true{
+    color: green
+}
+.false{
+    display: none;
+}
