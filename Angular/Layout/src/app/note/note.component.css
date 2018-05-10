@@ -1,0 +1,6 @@
+fieldset{
+    display: inline-block;
+    width: 500px;
+    height: 250px;
+    vertical-align: middle;
+}
