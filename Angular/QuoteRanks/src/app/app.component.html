@@ -1,0 +1,4 @@
+<div class='container'>
+    <app-create [quotes]="quotes" (createQuoteEvent)="createQuote($event)"></app-create>
+    <app-quotes [quotes]="quotes" (deleteQuoteEvent)="deleteQuote($event)"></app-quotes>
+  </div>
