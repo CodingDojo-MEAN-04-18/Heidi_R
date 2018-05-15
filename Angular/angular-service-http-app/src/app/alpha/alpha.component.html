@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor = "let content of data">{{ content }}</li>
+  <li *ngIf = "data">data: {{data}}</li>
+</ul>
+<form (submit) = "onSubmit()">
+  <input type = "text" name = "info">
+  <input type = "submit">
+</form>
