@@ -1,0 +1,41 @@
+<h1>Create A New Product</h1>
+<form #form="ngForm" (submit) = "onSubmit(form)" >
+  <table>
+    <tr>
+      <td><label>Title</label></td>
+      <td><input
+         type = "text" 
+         name = "title"
+         value = ""
+         required
+         minlength="4"
+         [(ngModel)] = "newproduct.title"
+         #title = "ngModel"
+         ></td>
+         <td>{{title.errors | json }}</td>
+    </tr>
+    <tr>
+      <td><label>Price</label></td>
+      <td><input 
+        type = "text" 
+        name = "price"
+        required
+        [(ngModel)] = "newproduct.price"
+        #price = "ngModel"></td>
+        <td>{{price.errors | json }}</td>
+    </tr>
+    <tr>
+      <td><label>Image URL</label></td>
+      <td><input
+         type = "text" 
+         name = "url"
+         [(ngModel)] = "newproduct.url"
+         #url = "ngModel"></td>
+         <td> </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type = "submit" [disabled]="form.invalid"></td>
+    </tr>
+  </table>
+</form>

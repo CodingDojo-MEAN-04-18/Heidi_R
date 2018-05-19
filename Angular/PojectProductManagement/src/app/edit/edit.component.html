@@ -1,0 +1,38 @@
+<h1>Edit Product</h1>
+<form #form = "ngForm" (submit) = "onSubmit(form)">
+  <table>
+    <tr>
+      <td><label>Title</label></td>
+      <td><input
+         type = "text" 
+         name = "title" 
+         value = '{{product.title}}'
+         required
+         [(ngModel)] = 'product.title'
+         #title = "ngModel"></td>
+    </tr>
+    <tr>
+      <td><label>Price</label></td>
+      <td><input 
+        type = "text"
+         name = "price" 
+         value = '{{product.price}}'
+         required
+         [(ngModel)] = "product.price"
+         #price = "ngModel"></td>
+    </tr>
+    <tr>
+      <td><label>Image URL</label></td>
+      <td><input 
+        type = "text" 
+        name = "url" 
+        value = '{{product.url}}'
+        required
+        [(ngModel)] = "product.url"
+        #price = 'ngModel'></td>
+    </tr>
+    <tr>
+      <td><button type = "submit" [disabled]="form.invalid">Edit</button></td>
+    </tr>
+  </table>
+</form>
