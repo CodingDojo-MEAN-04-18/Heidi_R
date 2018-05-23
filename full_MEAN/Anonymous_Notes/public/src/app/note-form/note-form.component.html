@@ -7,6 +7,7 @@
   required
   minlength="3"
   [(ngModel)] = "newnote.note"
-  #note = "ngModel">
-  <button type = "submit">Add Note</button>
+  #note = "ngModel"
+  >
+  <button type = "submit" [disabled]="form.invalid">Add Note</button>
 </form>

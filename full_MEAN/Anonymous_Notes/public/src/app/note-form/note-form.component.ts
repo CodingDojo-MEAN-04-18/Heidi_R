@@ -13,7 +13,6 @@ export class NoteFormComponent implements OnInit {
   constructor(private _taskService: TaskService) { }
 
   onSubmit(form){
-    console.log("submitted")
     this._taskService.addNote(this.newnote)
     this.newnote = {note: ""}
   }

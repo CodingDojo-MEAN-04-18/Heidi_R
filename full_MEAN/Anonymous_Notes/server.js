@@ -1,4 +1,3 @@
-
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const express = require('express');
@@ -27,9 +26,9 @@ const Note = mongoose.model('Note')
 
 // data routing
 app.get('/notes', function(req,res){
-    Note.find({})
+    Note.find({}).sort({_id:-1}) 
     .then(notes =>{
-        console.log("success",notes)
+        console.log("success finding note",notes)
         res.json(notes)
     })
     .catch(err =>{
@@ -37,8 +36,6 @@ app.get('/notes', function(req,res){
     })
 })
 app.post('/addnote', function(req,res){
-    console.log("in server")
-    console.log(req.body);
     const note = new Note({
         note: req.body.note
     })
