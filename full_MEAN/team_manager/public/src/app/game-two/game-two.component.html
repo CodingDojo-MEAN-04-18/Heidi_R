@@ -1,0 +1,27 @@
+<table>
+    <thead>
+      <th>Player Name</th>
+      <th>Actions</th>
+    </thead>
+    <tr *ngFor = "let player of players[0]">
+      <td>{{player.name}}</td>
+      <td>
+        <span *ngIf = 'player.game[1] == "playing"'>
+          <button id = 'green' disabled = 'true'>Playing</button>
+          <button (click) = "changePlay('notplaying',1,player._id)">Not Playing</button>
+          <button (click) = "changePlay('undefined',1,player._id)">Undefined</button>
+        </span>
+        <span *ngIf = 'player.game[1] == "notplaying"'>
+            <button (click) = "changePlay('playing',1,player._id)">Playing</button>
+            <button id = 'red'>Not Playing</button>
+            <button (click) = "changePlay('undefined',1,player._id)">Undefined</button>
+          </span>
+          <span *ngIf = 'player.game[1] == "undefined"'>
+              <button (click) = "changePlay('playing',1,player._id)">Playing</button>
+              <button (click) = "changePlay('notplaying',1,player._id)">Not Playing</button>
+              <button id = 'yellow'>Undefined</button>
+            </span>
+  
+      </td>
+    </tr>
+    </table>
